@@ -1,0 +1,134 @@
+/* mouse cursor style start */
+body{
+    cursor: none;
+    overflow: hidden;
+    position: relative;
+}
+.cursor-glow {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+}
+.cursor-glow::after{
+    content: '';
+    width: 5px;
+    height:5px;
+    background: var(--boxAfter,#555);
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    border-radius:50%;
+}
+/* mouse cursor style end */
+/* color panel style start */
+.color-panel{
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 200px;
+    cursor:auto;
+    transform: translateX(200px);
+    transition: 0.3s ease-in-out;
+}
+.color-panel-toggle{
+    transform: translateX(0);
+}
+.color-btn{
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    background-color: #222;
+    cursor: pointer;
+}
+.color-btn i{
+    font-size: 24px;
+    color: #fff;
+    animation: gear-rotate 2s linear infinite;
+}
+@keyframes gear-rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.color-panel .colors{
+    background-color: #222;
+    width: 200px;
+    height: 350px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+}
+.color-panel .colors h2{
+    color: #fff;
+    text-decoration: underline;
+    font-size: 18px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.color-panel .colors .panel{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.color-panel .colors .color{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: var(--background-color);
+    cursor: pointer;
+}
+.color-panel .colors .mouse-style{
+    padding-top: 20px;
+}
+.color-panel .colors .mouse-style i{
+    color: #fff;
+    font-size: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+/* color panel style end */
+/* loading page style start */
+.loading{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+.loading .load{
+    width: 5px;
+    height: 100%;
+    background-color: #555;
+    animation: loadingAnimation 2s infinite cubic-bezier(.68,.74,.42,-0.08);
+}
+@keyframes loadingAnimation {
+    0%{
+        width: 5px;
+        height: 0;
+    }
+    50%{
+        width: 5px;
+        height: 100%;
+    }
+    100%{
+        width: 100%;
+        height: 100%;
+    }
+}
+/* loading page style end */
