@@ -66,27 +66,36 @@ for (let i = 0; i < colors.length; i++) {
             colorizeLineLink[j].style.color = currentColor;
         }
         elem.style.setProperty('--box-After',currentColor);
-        // navbar js start
-        for(let j = 0; j < links.length; j++){
-            links[j].addEventListener("mouseover", mouseOver);
-            links[j].addEventListener("mouseout", mouseOut);
-            function mouseOver() {
-                links[j].style.color = currentColor;
-            }
-            function mouseOut(){
-                links[j].style.color = '#fff';
-            }      
-        }
-        // navbar js end
     }
 }
+// navbar js start
 for (let i = 0; i < links.length; i++) {
     links[i].addEventListener("click", function() {
-      let current = document.getElementsByClassName("colorize-line-link");
-      current[0].className = current[0].className.replace("colorize-line-link", "");
-      this.className += " colorize-line-link";
-      this.style.setProperty('--hover-color',clr);
+        let current = document.getElementsByClassName("colorize-line-link");
+        current[0].className = current[0].className.replace("colorize-line-link", "");
+        this.className += " colorize-line-link";
+        this.style.setProperty('--hover-color',clr);
     });
+    links[i].addEventListener("mouseover", mouseOver);
+    links[i].addEventListener("mouseout", mouseOut);
+    function mouseOver() {
+        links[i].style.color = clr;
+    }
+    function mouseOut(){
+        // links[i].style.color = '#fff';
+        if(links[i].classList[1] === "colorize-line-link"){
+            for(let j = 0; j < links.length; j++){
+                if(links[j] === links[i]){
+                    links[j].style.color = clr;
+                }else{
+                    links[j].style.color = '#fff';
+                }
+            }
+        }else{
+            links[i].style.color = '#fff';
+        }
+    }     
 }
+// navbar js end
     // custom color element js end
 // color panel js end

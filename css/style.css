@@ -188,10 +188,9 @@ body{
     transition: 0.3s ease-in-out;
 }
 .website-sections  .navigation-bar .menu ul li a.colorize-line-link{
-    color: #66B95C;
+    color: var(--hover-color);
 }
 .website-sections  .navigation-bar .menu ul li:hover a{
     color: var(--hover-color);
 }
-
 /* website sections style end */
