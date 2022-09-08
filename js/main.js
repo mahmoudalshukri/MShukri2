@@ -45,7 +45,7 @@ let links = menu.getElementsByClassName('link');
 colorBtn.onclick = function(){
     colorPanel.classList.toggle('color-panel-toggle')
 }
-    // custom color element js start
+    // custom color element with local storage js start
     let clr = '#66B95C';
     let currentColor = '#66B95C';
     
@@ -88,5 +88,5 @@ for (let i = 0; i < links.length; i++) {
       this.style.setProperty('--hover-color',clr);
     });
 }
-    // custom color element js end
+    // custom color element with local storage js end
 // color panel js end
