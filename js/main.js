@@ -1,3 +1,15 @@
+// loading screen js start
+function loading() {
+    let loader = document.querySelector(".loading")
+    loader.style.display = "none"
+}
+
+window.addEventListener("load", loading);
+
+$(window).load(function() {
+    $('html, body').css('overflowY', 'auto'); 
+});
+// loading screen js end
 // mouse cursor js start
 document.addEventListener("mousemove", (event) => {
     let mousex = event.clientX - 15;
@@ -16,7 +28,7 @@ mouseNormal.onclick = function(){
 }
 mouseCircle.onclick = function(){
     elem.style.display = 'block';
-    body.style.cursor = 'none';
+    // body.style.cursor = 'none';
 }
 
 // mouse cursor js end
@@ -27,13 +39,20 @@ let colors = document.querySelectorAll('.color');
 let colorize = document.getElementsByClassName('colorize');
 let colorizeBorder = document.getElementsByClassName('colorize-border');
 let colorizeLine = document.getElementsByClassName('colorize-line');
+let colorizeLineLink = document.getElementsByClassName('colorize-line-link');
+let menu = document.getElementById('menu');
+let links = menu.getElementsByClassName('link');
 colorBtn.onclick = function(){
     colorPanel.classList.toggle('color-panel-toggle')
 }
     // custom color element js start
+    let clr = '#66B95C';
+    let currentColor = '#66B95C';
+    
 for (let i = 0; i < colors.length; i++) {
     colors[i].onclick = function (){
-        let currentColor = window.getComputedStyle(colors[i]).backgroundColor;
+        currentColor = window.getComputedStyle(colors[i]).backgroundColor;
+        clr = currentColor;
         for(let j = 0; j < colorize.length; j++){
             colorize[j].style.backgroundColor = currentColor;
         }
@@ -43,20 +62,31 @@ for (let i = 0; i < colors.length; i++) {
         for(let j = 0; j < colorizeLine.length; j++){
             colorizeLine[j].style.color = currentColor;
         }
-        elem.style.setProperty('--boxAfter',currentColor);
+        for(let j = 0; j < colorizeLineLink.length; j++){
+            colorizeLineLink[j].style.color = currentColor;
+        }
+        elem.style.setProperty('--box-After',currentColor);
+        // navbar js start
+        for(let j = 0; j < links.length; j++){
+            links[j].addEventListener("mouseover", mouseOver);
+            links[j].addEventListener("mouseout", mouseOut);
+            function mouseOver() {
+                links[j].style.color = currentColor;
+            }
+            function mouseOut(){
+                links[j].style.color = '#fff';
+            }      
+        }
+        // navbar js end
     }
+}
+for (let i = 0; i < links.length; i++) {
+    links[i].addEventListener("click", function() {
+      let current = document.getElementsByClassName("colorize-line-link");
+      current[0].className = current[0].className.replace("colorize-line-link", "");
+      this.className += " colorize-line-link";
+      this.style.setProperty('--hover-color',clr);
+    });
 }
     // custom color element js end
 // color panel js end
-// loading screen js start
-function loading() {
-    let loader = document.querySelector(".loading")
-    loader.style.display = "none"
-}
-
-window.addEventListener("load", loading);
-
-$(window).load(function() {
-    $('html, body').css('overflowY', 'auto'); 
-});
-// loading screen js end
