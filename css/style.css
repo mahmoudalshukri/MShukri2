@@ -4,14 +4,12 @@ body{
     overflow: hidden;
     position: relative;
 }
-/* .cursor-glow {
+.cursor-glow {
     height: 30px;
     width: 30px;
     border-radius: 50%;
     background: transparent;
     border: 2px solid #66B95C;
-    background-repeat: no-repeat;
-    background-position: center;
     position: absolute;
 }
 .cursor-glow::after{
@@ -24,7 +22,7 @@ body{
     left:50%;
     transform: translate(-50%, -50%);
     border-radius:50%;
-} */
+}
 /* mouse cursor style end */
 /* color panel style start */
 .color-panel{
