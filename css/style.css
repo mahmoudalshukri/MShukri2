@@ -33,6 +33,7 @@ body{
     cursor:auto;
     transform: translateX(200px);
     transition: 0.3s ease-in-out;
+    z-index: 9;
 }
 .color-panel-toggle{
     transform: translateX(0);
@@ -132,10 +133,12 @@ body{
 /* loading page style end */
 /* website sections style start */
 .website-sections{
-    background-color: #222;
+    background-color: #000;
     width: 100%;
     height: 100vh;
     padding-top: 30px;
+    position: relative;
+    overflow: hidden;
 }
 .website-sections  .navigation-bar{
     display: flex;
@@ -160,25 +163,30 @@ body{
     font-weight: bold;
     margin-left: 5px;
 }
-.website-sections  .navigation-bar .menu{
+.website-sections  .navigation-bar .menu,
+.website-sections .res-menu .menu{
     padding-top: 10px;
     transition: 0.5s ease-in-out;
     display: flex;
 }
-.website-sections  .navigation-bar #menu{
+.website-sections  .navigation-bar #menu,
+.website-sections .res-menu .menu #menu{
     transition: 0.5s ease-in-out;
 }
-.website-sections  .navigation-bar .menu ul{
+.website-sections  .navigation-bar .menu ul,
+.website-sections .res-menu .menu ul{
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
-.website-sections  .navigation-bar .menu ul li{
+.website-sections  .navigation-bar .menu ul li,
+.website-sections .res-menu .menu ul li{
     list-style: none;
     margin-left: 5px;
     margin-right: 5px;
 }
-.website-sections  .navigation-bar .menu ul li a{
+.website-sections  .navigation-bar .menu ul li a,
+.website-sections .res-menu .menu ul li a{
     color: #fff;
     text-decoration: none;
     font-size: 20px;
@@ -188,7 +196,80 @@ body{
 .website-sections  .navigation-bar .menu ul li a.colorize-line-link{
     color: var(--hover-color);
 }
-.website-sections  .navigation-bar .menu ul li:hover a{
+.website-sections  .navigation-bar .menu ul li:hover a,
+.website-sections .res-menu .menu ul li:hover a{
     color: var(--hover-color);
+}
+.website-sections .navigation-bar .bar{
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    cursor: pointer;
+    display: none;
+    position: relative;
+}
+.website-sections .navigation-bar .bar span{
+    width: 50px;
+    height: 3px;
+    background-color: #fff;
+    display: block;
+    transition: 0.3s ease-in-out;
+}
+.website-sections .navigation-bar .bar .special{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.website-sections .navigation-bar .bar span.hide{
+    display: none;
+}
+.website-sections .navigation-bar .bar span.rotate{
+    transform: rotate(45deg);
+}
+.website-sections .navigation-bar .bar span.-rotate{
+    transform: rotate(-45deg);
+}
+.website-sections .res-menu{
+    height: 100vh;
+    width: 300px;
+    background-color: #000;
+    position: absolute;
+    right: 0;
+    transform: translateX(300px);
+    transition: 0.5s ease-in-out;
+    z-index: 10;
+}
+.website-sections .res-menu-toggle{
+    transform: translateX(0px);
+}
+.website-sections .res-menu .menu{
+    padding-top: 10px;
+    transition: 0.5s ease-in-out;
+    display: flex;
+}
+.website-sections .res-menu .menu #menu{
+    transition: 0.5s ease-in-out;
+}
+.website-sections .res-menu .menu ul{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.website-sections .res-menu .menu ul li{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.website-sections .res-menu .menu ul li a.res-colorize-line-link{
+    color: var(--res-hover-color);
+}
+@media (max-width: 776px) {
+    .website-sections .navigation-bar .bar{
+        display: flex;
+    }
+    .website-sections  .navigation-bar .menu{
+        display: none;
+    }
 }
 /* website sections style end */

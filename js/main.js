@@ -47,7 +47,10 @@ let colorizeBorder = document.getElementsByClassName('colorize-border');
 let colorizeLine = document.getElementsByClassName('colorize-line');
 let colorizeLineLink = document.getElementsByClassName('colorize-line-link');
 let menu = document.getElementById('menu');
+let rMenu = document.getElementById('rmenu');
 let links = menu.getElementsByClassName('link');
+let resLinks = rMenu.getElementsByClassName('res-link');
+let resColorizeLineLink = document.getElementsByClassName('res-colorize-line-link');
 colorBtn.onclick = function(){
     colorPanel.classList.toggle('color-panel-toggle')
 }
@@ -63,6 +66,9 @@ for(let j = 0; j < colorizeLine.length; j++){
 }
 for(let j = 0; j < colorizeLineLink.length; j++){
     colorizeLineLink[j].style.color = localStorage.getItem('currentColor');
+}
+for(let j = 0; j < resColorizeLineLink.length; j++){
+    resColorizeLineLink[j].style.color = localStorage.getItem('currentColor');
 }
 elem.style.setProperty('--box-After',localStorage.getItem('currentColor'));
 if(localStorage.getItem('currentColor')){
@@ -83,6 +89,9 @@ if(localStorage.getItem('currentColor')){
                 }
                 for(let j = 0; j < colorizeLineLink.length; j++){
                     colorizeLineLink[j].style.color = localStorage.getItem('currentColor');
+                }
+                for(let j = 0; j < resColorizeLineLink.length; j++){
+                    resColorizeLineLink[j].style.color = localStorage.getItem('currentColor');
                 }
                 elem.style.setProperty('--box-After',localStorage.getItem('currentColor'));
         }
@@ -119,3 +128,45 @@ for (let i = 0; i < links.length; i++) {
         // navbar js end
     // custom color element js end
 // color panel with local storage js end
+// responsive menu js start
+let bar = document.querySelector('.bar');
+let resMenu = document.querySelector('.res-menu');
+let span1 = document.querySelector('.one');
+let span2 = document.querySelector('.two');
+let span3 = document.querySelector('.three');
+let special = document.querySelector('.special');
+bar.onclick = function(){
+    resMenu.classList.toggle('res-menu-toggle');
+    span2.classList.toggle('rotate');
+    special.classList.toggle('-rotate');
+    span1.classList.toggle('hide');
+    span3.classList.toggle('hide');
+}
+console.log(resLinks.classList);
+for (let i = 0; i < resLinks.length; i++) {
+    resLinks[i].addEventListener("click", function() {
+        let current = document.getElementsByClassName("res-colorize-line-link");
+        current[0].className = current[0].className.replace("res-colorize-line-link", "");
+        this.className += " res-colorize-line-link";
+        this.style.setProperty('--res-hover-color',localStorage.getItem('clr'));
+    });
+    resLinks[i].addEventListener("mouseover", mouseOver);
+    resLinks[i].addEventListener("mouseout", mouseOut);
+    function mouseOver() {
+        resLinks[i].style.color = localStorage.getItem('clr');
+    }
+    function mouseOut(){
+        if(resLinks[i].classList[1] === "res-colorize-line-link"){
+            for(let j = 0; j < resLinks.length; j++){
+                if(resLinks[j] === resLinks[i]){
+                    resLinks[j].style.color = localStorage.getItem('clr');
+                }else{
+                    resLinks[j].style.color = '#fff';
+                }
+            }
+        }else{
+            resLinks[i].style.color = '#fff';
+        }
+    }     
+}
+// responsive menu js end
