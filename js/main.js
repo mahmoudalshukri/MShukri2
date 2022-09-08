@@ -25,18 +25,18 @@ let body = document.querySelector('body');
 mouseNormal.onclick = function(){
     elem.style.display = 'none';
     body.style.cursor = 'auto';
-    localStorage.setItem('mouseStatus','mouseNormal');
+    // localStorage.setItem('mouseStatus','mouseNormal');
 }
 mouseCircle.onclick = function(){
     elem.style.display = 'block';
-    localStorage.setItem('mouseStatus','mouseCircle');
+    // localStorage.setItem('mouseStatus','mouseCircle');
 }
-if(localStorage.mouseStatus === 'mouseNormal'){
-    elem.style.display = 'none';
-    body.style.cursor = 'auto';
-}else{
-    elem.style.display = 'block';
-}
+// if(localStorage.mouseStatus === 'mouseNormal'){
+//     elem.style.display = 'none';
+//     body.style.cursor = 'auto';
+// }else{
+//     elem.style.display = 'block';
+// }
 // mouse cursor js end
 // color panel with local storage js start
 let colorPanel = document.querySelector('.color-panel');
@@ -55,67 +55,80 @@ colorBtn.onclick = function(){
     colorPanel.classList.toggle('color-panel-toggle')
 }
     // custom color element js start
-for(let j = 0; j < colorize.length; j++){
-    colorize[j].style.backgroundColor = localStorage.getItem('currentColor');
-}
-for(let j = 0; j < colorizeBorder.length; j++){
-    colorizeBorder[j].style.borderColor = localStorage.getItem('currentColor');
-}
-for(let j = 0; j < colorizeLine.length; j++){
-    colorizeLine[j].style.color = localStorage.getItem('currentColor');
-}
-for(let j = 0; j < colorizeLineLink.length; j++){
-    colorizeLineLink[j].style.color = localStorage.getItem('currentColor');
-}
-for(let j = 0; j < resColorizeLineLink.length; j++){
-    resColorizeLineLink[j].style.color = localStorage.getItem('currentColor');
-}
-elem.style.setProperty('--box-After',localStorage.getItem('currentColor'));
-if(localStorage.getItem('currentColor')){
+// for(let j = 0; j < colorize.length; j++){
+//     colorize[j].style.backgroundColor = localStorage.getItem('currentColor');
+// }
+// for(let j = 0; j < colorizeBorder.length; j++){
+//     colorizeBorder[j].style.borderColor = localStorage.getItem('currentColor');
+// }
+// for(let j = 0; j < colorizeLine.length; j++){
+//     colorizeLine[j].style.color = localStorage.getItem('currentColor');
+// }
+// for(let j = 0; j < colorizeLineLink.length; j++){
+//     colorizeLineLink[j].style.color = localStorage.getItem('currentColor');
+// }
+// for(let j = 0; j < resColorizeLineLink.length; j++){
+//     resColorizeLineLink[j].style.color = localStorage.getItem('currentColor');
+// }
+// elem.style.setProperty('--box-After',localStorage.getItem('currentColor'));
+// if(localStorage.getItem('currentColor')){
+    let currentColor = '#66B95C';
+    let clr = '#66B95C';
     for (let i = 0; i < colors.length; i++) {
         colors[i].onclick = function (){
-            let currentColor = window.getComputedStyle(colors[i]).backgroundColor;
-            let clr = currentColor;
-            localStorage.setItem('currentColor',currentColor);
-            localStorage.setItem('clr',clr);
+            currentColor = window.getComputedStyle(colors[i]).backgroundColor;
+            clr = currentColor;
+            // let currentColor = window.getComputedStyle(colors[i]).backgroundColor;
+            // let clr = currentColor;
+            // localStorage.setItem('currentColor',currentColor);
+            // localStorage.setItem('clr',clr);
                 for(let j = 0; j < colorize.length; j++){
-                    colorize[j].style.backgroundColor = localStorage.getItem('currentColor');
+                    colorize[j].style.backgroundColor = currentColor;
+                    // colorize[j].style.backgroundColor = localStorage.getItem('currentColor');
                 }
                 for(let j = 0; j < colorizeBorder.length; j++){
-                    colorizeBorder[j].style.borderColor = localStorage.getItem('currentColor');
+                    colorizeBorder[j].style.borderColor = currentColor;
+                    // colorizeBorder[j].style.borderColor = localStorage.getItem('currentColor');
                 }
                 for(let j = 0; j < colorizeLine.length; j++){
-                    colorizeLine[j].style.color = localStorage.getItem('currentColor');
+                    colorizeLine[j].style.color = currentColor;
+                    // colorizeLine[j].style.color = localStorage.getItem('currentColor');
                 }
                 for(let j = 0; j < colorizeLineLink.length; j++){
-                    colorizeLineLink[j].style.color = localStorage.getItem('currentColor');
+                    colorizeLineLink[j].style.color = currentColor;
+                    // colorizeLineLink[j].style.color = localStorage.getItem('currentColor');
                 }
                 for(let j = 0; j < resColorizeLineLink.length; j++){
-                    resColorizeLineLink[j].style.color = localStorage.getItem('currentColor');
+                    resColorizeLineLink[j].style.color = currentColor;
+                    // resColorizeLineLink[j].style.color = localStorage.getItem('currentColor');
                 }
-                elem.style.setProperty('--box-After',localStorage.getItem('currentColor'));
+                elem.style.setProperty('--box-After',currentColor);
+                // elem.style.setProperty('--box-After',localStorage.getItem('currentColor'));
         }
     }
-}
+// }
         // navbar js start
 for (let i = 0; i < links.length; i++) {
     links[i].addEventListener("click", function() {
         let current = document.getElementsByClassName("colorize-line-link");
         current[0].className = current[0].className.replace("colorize-line-link", "");
         this.className += " colorize-line-link";
-        this.style.setProperty('--hover-color',localStorage.getItem('clr'));
+        this.style.setProperty('--hover-color',clr);
+        // this.style.setProperty('--hover-color',localStorage.getItem('clr'));
     });
     links[i].addEventListener("mouseover", mouseOver);
     links[i].addEventListener("mouseout", mouseOut);
     function mouseOver() {
-        links[i].style.color = localStorage.getItem('clr');
+        links[i].style.color = clr;
+        // links[i].style.color = localStorage.getItem('clr');
     }
     function mouseOut(){
         // links[i].style.color = '#fff';
         if(links[i].classList[1] === "colorize-line-link"){
             for(let j = 0; j < links.length; j++){
                 if(links[j] === links[i]){
-                    links[j].style.color = localStorage.getItem('clr');
+                    links[j].style.color = clr;
+                    // links[j].style.color = localStorage.getItem('clr');
                 }else{
                     links[j].style.color = '#fff';
                 }
@@ -148,18 +161,21 @@ for (let i = 0; i < resLinks.length; i++) {
         let current = document.getElementsByClassName("res-colorize-line-link");
         current[0].className = current[0].className.replace("res-colorize-line-link", "");
         this.className += " res-colorize-line-link";
-        this.style.setProperty('--res-hover-color',localStorage.getItem('clr'));
+        this.style.setProperty('--res-hover-color',clr);
+        // this.style.setProperty('--res-hover-color',localStorage.getItem('clr'));
     });
     resLinks[i].addEventListener("mouseover", mouseOver);
     resLinks[i].addEventListener("mouseout", mouseOut);
     function mouseOver() {
-        resLinks[i].style.color = localStorage.getItem('clr');
+        resLinks[i].style.color = clr;
+        // resLinks[i].style.color = localStorage.getItem('clr');
     }
     function mouseOut(){
         if(resLinks[i].classList[1] === "res-colorize-line-link"){
             for(let j = 0; j < resLinks.length; j++){
                 if(resLinks[j] === resLinks[i]){
-                    resLinks[j].style.color = localStorage.getItem('clr');
+                    resLinks[j].style.color = clr;
+                    // resLinks[j].style.color = localStorage.getItem('clr');
                 }else{
                     resLinks[j].style.color = '#fff';
                 }
