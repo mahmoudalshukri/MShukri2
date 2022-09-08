@@ -86,55 +86,27 @@ if(localStorage.getItem('currentColor')){
                 }
                 elem.style.setProperty('--box-After',localStorage.getItem('currentColor'));
         }
-<<<<<<< HEAD
-        for(let j = 0; j < colorizeBorder.length; j++){
-            colorizeBorder[j].style.borderColor = currentColor;
-        }
-        for(let j = 0; j < colorizeLine.length; j++){
-            colorizeLine[j].style.color = currentColor;
-        }
-        for(let j = 0; j < colorizeLineLink.length; j++){
-            colorizeLineLink[j].style.color = currentColor;
-        }
-        elem.style.setProperty('--box-After',currentColor);
-    }
-}
-// navbar js start
-=======
     }
 }
         // navbar js start
->>>>>>> color-control-local-storage
 for (let i = 0; i < links.length; i++) {
     links[i].addEventListener("click", function() {
         let current = document.getElementsByClassName("colorize-line-link");
         current[0].className = current[0].className.replace("colorize-line-link", "");
         this.className += " colorize-line-link";
-<<<<<<< HEAD
-        this.style.setProperty('--hover-color',clr);
-=======
         this.style.setProperty('--hover-color',localStorage.getItem('clr'));
->>>>>>> color-control-local-storage
     });
     links[i].addEventListener("mouseover", mouseOver);
     links[i].addEventListener("mouseout", mouseOut);
     function mouseOver() {
-<<<<<<< HEAD
-        links[i].style.color = clr;
-=======
         links[i].style.color = localStorage.getItem('clr');
->>>>>>> color-control-local-storage
     }
     function mouseOut(){
         // links[i].style.color = '#fff';
         if(links[i].classList[1] === "colorize-line-link"){
             for(let j = 0; j < links.length; j++){
                 if(links[j] === links[i]){
-<<<<<<< HEAD
-                    links[j].style.color = clr;
-=======
                     links[j].style.color = localStorage.getItem('clr');
->>>>>>> color-control-local-storage
                 }else{
                     links[j].style.color = '#fff';
                 }
@@ -144,10 +116,6 @@ for (let i = 0; i < links.length; i++) {
         }
     }     
 }
-<<<<<<< HEAD
-// navbar js end
-=======
         // navbar js end
->>>>>>> color-control-local-storage
     // custom color element js end
 // color panel with local storage js end
