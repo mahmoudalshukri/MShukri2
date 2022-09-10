@@ -192,38 +192,46 @@ let about = document.getElementById('about');
 let portfolio = document.getElementById('portfolio');
 let news = document.getElementById('news');
 let contact = document.getElementById('contact');
-let aHome = document.getElementById('a-home');
-let aAbout = document.getElementById('a-about');
-let aPortfolio = document.getElementById('a-portfolio');
-let aNews = document.getElementById('a-news');
+let aHome = document.getElementsByClassName('a-home');
+let aAbout = document.getElementsByClassName('a-about');
+let aPortfolio = document.getElementsByClassName('a-portfolio');
+let aNews = document.getElementsByClassName('a-news');
 let aContact = document.getElementsByClassName('a-contact');
-aHome.onclick = function(){
-    home.style.zIndex = '8';
-    about.style.zIndex = '0';
-    portfolio.style.zIndex = '0';
-    news.style.zIndex = '0';
-    contact.style.zIndex = '0';
+for(let i = 0; i < aHome.length; i++){
+    aHome[i].onclick = function(){
+        home.style.zIndex = '8';
+        about.style.zIndex = '0';
+        portfolio.style.zIndex = '0';
+        news.style.zIndex = '0';
+        contact.style.zIndex = '0';
+    }
 }
-aAbout.onclick = function(){
-    home.style.zIndex = '0';
-    about.style.zIndex = '8';
-    portfolio.style.zIndex = '0';
-    news.style.zIndex = '0';
-    contact.style.zIndex = '0';
+for(let i = 0; i < aAbout.length; i++){
+    aAbout[i].onclick = function(){
+        home.style.zIndex = '0';
+        about.style.zIndex = '8';
+        portfolio.style.zIndex = '0';
+        news.style.zIndex = '0';
+        contact.style.zIndex = '0';
+    }
 }
-aPortfolio.onclick = function(){
-    home.style.zIndex = '0';
-    about.style.zIndex = '0';
-    portfolio.style.zIndex = '8';
-    news.style.zIndex = '0';
-    contact.style.zIndex = '0';
+for(let i = 0; i < aPortfolio.length; i++){
+    aPortfolio[i].onclick = function(){
+        home.style.zIndex = '0';
+        about.style.zIndex = '0';
+        portfolio.style.zIndex = '8';
+        news.style.zIndex = '0';
+        contact.style.zIndex = '0';
+    }
 }
-aNews.onclick = function(){
-    home.style.zIndex = '0';
-    about.style.zIndex = '0';
-    portfolio.style.zIndex = '0';
-    news.style.zIndex = '8';
-    contact.style.zIndex = '0';
+for(let i = 0; i < aNews.length; i++){
+    aNews[i].onclick = function(){
+        home.style.zIndex = '0';
+        about.style.zIndex = '0';
+        portfolio.style.zIndex = '0';
+        news.style.zIndex = '8';
+        contact.style.zIndex = '0';
+    }
 }
 for(let i = 0; i < aContact.length; i++){
     aContact[i].onclick = function(){
