@@ -72,8 +72,8 @@ colorBtn.onclick = function(){
 // }
 // elem.style.setProperty('--box-After',localStorage.getItem('currentColor'));
 // if(localStorage.getItem('currentColor')){
-    let currentColor = '#66B95C';
-    let clr = '#66B95C';
+    let currentColor = '#5e9e9f';
+    let clr = '#5e9e9f';
     for (let i = 0; i < colors.length; i++) {
         colors[i].onclick = function (){
             currentColor = window.getComputedStyle(colors[i]).backgroundColor;
@@ -155,7 +155,6 @@ bar.onclick = function(){
     span1.classList.toggle('hide');
     span3.classList.toggle('hide');
 }
-console.log(resLinks.classList);
 for (let i = 0; i < resLinks.length; i++) {
     resLinks[i].addEventListener("click", function() {
         let current = document.getElementsByClassName("res-colorize-line-link");
@@ -163,6 +162,7 @@ for (let i = 0; i < resLinks.length; i++) {
         this.className += " res-colorize-line-link";
         this.style.setProperty('--res-hover-color',clr);
         // this.style.setProperty('--res-hover-color',localStorage.getItem('clr'));
+        
     });
     resLinks[i].addEventListener("mouseover", mouseOver);
     resLinks[i].addEventListener("mouseout", mouseOut);
@@ -186,3 +186,52 @@ for (let i = 0; i < resLinks.length; i++) {
     }     
 }
 // responsive menu js end
+// website pages js start
+let home = document.getElementById('home');
+let about = document.getElementById('about');
+let portfolio = document.getElementById('portfolio');
+let news = document.getElementById('news');
+let contact = document.getElementById('contact');
+let aHome = document.getElementById('a-home');
+let aAbout = document.getElementById('a-about');
+let aPortfolio = document.getElementById('a-portfolio');
+let aNews = document.getElementById('a-news');
+let aContact = document.getElementsByClassName('a-contact');
+aHome.onclick = function(){
+    home.style.zIndex = '8';
+    about.style.zIndex = '0';
+    portfolio.style.zIndex = '0';
+    news.style.zIndex = '0';
+    contact.style.zIndex = '0';
+}
+aAbout.onclick = function(){
+    home.style.zIndex = '0';
+    about.style.zIndex = '8';
+    portfolio.style.zIndex = '0';
+    news.style.zIndex = '0';
+    contact.style.zIndex = '0';
+}
+aPortfolio.onclick = function(){
+    home.style.zIndex = '0';
+    about.style.zIndex = '0';
+    portfolio.style.zIndex = '8';
+    news.style.zIndex = '0';
+    contact.style.zIndex = '0';
+}
+aNews.onclick = function(){
+    home.style.zIndex = '0';
+    about.style.zIndex = '0';
+    portfolio.style.zIndex = '0';
+    news.style.zIndex = '8';
+    contact.style.zIndex = '0';
+}
+for(let i = 0; i < aContact.length; i++){
+    aContact[i].onclick = function(){
+        home.style.zIndex = '0';
+        about.style.zIndex = '0';
+        portfolio.style.zIndex = '0';
+        news.style.zIndex = '0';
+        contact.style.zIndex = '8';
+    }
+}
+// website pages js end
