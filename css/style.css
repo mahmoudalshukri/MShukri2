@@ -3,6 +3,7 @@ body{
     /* cursor: none; */
     overflow: hidden;
     position: relative;
+    background-color: #000;
 }
 .cursor-glow {
     height: 30px;
@@ -138,12 +139,6 @@ body{
     height: 100vh;
     padding-top: 30px;
     position: relative;
-    overflow: hidden;
-}
-@media (max-width: 576px) {
-    .website-sections{
-        overflow-y: visible;
-    }
 }
 .website-sections  .navigation-bar{
     display: flex;
@@ -298,11 +293,18 @@ body{
     top: 0;
     left: 0;
     transition: 0.3s ease-in-out;
+    display: none;
 }
 .website-sections .home{
-    z-index: 8;
     display: grid;
     place-items: center;
+    display: block;
+}
+.website-sections .home .container{
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background-color: #000;
 }
 .website-sections .home .content{
     width: 100%;
@@ -350,15 +352,18 @@ body{
     color: #000;
 }
 .website-sections .about{
-    display: grid;
-    place-items: center;
     padding-bottom: 150px;
 }
-
+.website-sections .about .container,
+.website-sections .about .container .row{
+    background-color: #000;
+    height: 100%;
+}
 .website-sections .about .img-container,
 .website-sections .about .content-container{
     display: grid;
     place-items: center;
+    background-color: #000;
 }
 .website-sections .about .img-container .img{
     background-color: #999;
@@ -409,6 +414,162 @@ body{
 @media (max-width: 576px) {
     .website-sections .about .img-container .img{
         width: 250px;
+    }
+}
+.website-sections .portfolio .container{
+    background-color: #000;
+    height: 100%;
+}
+.website-sections .portfolio .container .row{
+    background-color: #000;
+}
+.website-sections .portfolio .heading{
+    padding-top: 20px;
+}
+.website-sections .portfolio .heading h2 span{
+    color: #5e9e9f;
+}
+.website-sections .portfolio .work-container{
+    display: grid;
+    place-items: center;
+    padding: 10px;
+}
+.website-sections .portfolio .work-container .work{
+    width: 100%;
+    height: 250px;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+}
+.website-sections .fox{
+    background-image: url(../images/fox.png);
+    background-size: cover;
+}
+.website-sections .dashbored{
+    background-image: url(../images/dashbored.png);
+    background-size: cover;
+}
+.website-sections .myway{
+    background-image: url(../images/myway.png);
+    background-size: cover;
+}
+.website-sections .portfolio1{
+    background-image: url(../images/portfolio1.png);
+    background-size: cover;
+}
+.website-sections .portfolio2{
+    background-image: url(../images/portfolio2.png);
+    background-size: cover;
+}
+.website-sections .kasper{
+    background-image: url(../images/kasper.png);
+    background-size: cover;
+}
+.website-sections .work .info{
+    background-color: #fff;
+    width: 250px;
+    height: 100px;
+    color: #5e9e9f;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    position: absolute;
+    bottom: -100px;
+    left: 20px;
+    padding: 5px;
+    transition: 0.5s ease-in-out;
+}
+.website-sections .work:hover .info{
+    bottom: 20px;
+}
+.website-sections .work .info span{
+    font-size: 18px;
+    font-weight: bold;
+}
+.website-sections .more{
+    display: grid;
+    place-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.website-sections .more .link{
+    background-color: #5e9e9f;
+    text-align: center;
+    border-radius: 30px;
+    height: 50px;
+    width: 150px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+}
+.website-sections .more a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    transition-delay: 0.3s;
+}
+.website-sections .more .link:hover{
+    background-color: #fff;
+}
+.website-sections .more .link:hover a{
+    color: #000;
+}
+.website-sections .contact .container{
+    background-color: #000;
+    height: 100%;
+}
+.website-sections .contact .container .row{
+    background-color: #000;
+}
+.website-sections .contact .heading{
+    padding-top: 20px;
+}
+.website-sections .contact .heading h2 span{
+    color: #5e9e9f;
+}
+.website-sections .contact .data{
+    width: 100%;
+    height: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.website-sections .contact .data div{
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.website-sections .contact .from{
+    padding: 20px;
+}
+.website-sections .contact .form input{
+    height: 50px;
+}
+.website-sections .contact .form input,
+.website-sections .contact textarea{
+    width: 100%;
+    margin-top: 20px;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+}
+.website-sections .contact button{
+    background-color: #5e9e9f;
+    color: #fff;
+    width: 200px;
+    height: 60px;
+    border-radius: 30px;
+    font-size: 18px;
+    margin-top: 5px;
+}
+@media (max-width:576px) {
+    .website-sections .contact .data div{
+        font-size: 14px;
     }
 }
 /* website sections style end */

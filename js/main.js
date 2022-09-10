@@ -199,47 +199,47 @@ let aNews = document.getElementsByClassName('a-news');
 let aContact = document.getElementsByClassName('a-contact');
 for(let i = 0; i < aHome.length; i++){
     aHome[i].onclick = function(){
-        home.style.zIndex = '8';
-        about.style.zIndex = '0';
-        portfolio.style.zIndex = '0';
-        news.style.zIndex = '0';
-        contact.style.zIndex = '0';
+        home.style.display = 'block';
+        about.style.display = 'none';
+        portfolio.style.display = 'none';
+        news.style.display = 'none';
+        contact.style.display = 'none';
     }
 }
 for(let i = 0; i < aAbout.length; i++){
     aAbout[i].onclick = function(){
-        home.style.zIndex = '0';
-        about.style.zIndex = '8';
-        portfolio.style.zIndex = '0';
-        news.style.zIndex = '0';
-        contact.style.zIndex = '0';
+        home.style.display = 'none';
+        about.style.display = 'block';
+        portfolio.style.display = 'none';
+        news.style.display = 'none';
+        contact.style.display = 'none';
     }
 }
 for(let i = 0; i < aPortfolio.length; i++){
     aPortfolio[i].onclick = function(){
-        home.style.zIndex = '0';
-        about.style.zIndex = '0';
-        portfolio.style.zIndex = '8';
-        news.style.zIndex = '0';
-        contact.style.zIndex = '0';
+        home.style.display = 'none';
+        about.style.display = 'none';
+        portfolio.style.display = 'block';
+        news.style.display = 'none';
+        contact.style.display = 'none';
     }
 }
 for(let i = 0; i < aNews.length; i++){
     aNews[i].onclick = function(){
-        home.style.zIndex = '0';
-        about.style.zIndex = '0';
-        portfolio.style.zIndex = '0';
-        news.style.zIndex = '8';
-        contact.style.zIndex = '0';
+        home.style.display = 'none';
+        about.style.display = 'none';
+        portfolio.style.display = 'none';
+        news.style.display = 'block';
+        contact.style.display = 'none';
     }
 }
 for(let i = 0; i < aContact.length; i++){
     aContact[i].onclick = function(){
-        home.style.zIndex = '0';
-        about.style.zIndex = '0';
-        portfolio.style.zIndex = '0';
-        news.style.zIndex = '0';
-        contact.style.zIndex = '8';
+        home.style.display = 'none';
+        about.style.display = 'none';
+        portfolio.style.display = 'none';
+        news.style.display = 'none';
+        contact.style.display = 'block';
     }
 }
 // website pages js end
